@@ -116,14 +116,14 @@ Window {
             }
         }
 
-        Rectangle{
+        UITablaIngresos {
             id: contenedorTablaIngresos
+            model: modeloTablaIngresos
+
             anchors.top: contenedorInformacionGastos.bottom
             anchors.bottom: contenedorPrincipal.bottom
             anchors.left: contenedorPrincipal.left
             anchors.right: contenedorPrincipal.right
-
-            color: "cyan"
         }
     }
 
