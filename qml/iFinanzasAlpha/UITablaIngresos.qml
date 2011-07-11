@@ -5,14 +5,17 @@ ListView {
         id: delegadoLista
 
         Row {
+            property int anchoCategoria : 200
+            property int desfase : 10
+
             Text {
-                id: categoriaRenglon
-                width: 200
+                width: anchoCategoria
                 text: categoria
             }
+
             Rectangle {
                 color: "transparent"
-                width: 10
+                width: desfase
             }
 
             TextEdit {
