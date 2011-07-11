@@ -116,14 +116,30 @@ Window {
             }
         }
 
-        Rectangle{
+        ListModel {
+            id: mockModeloTablaIngresos
+            ListElement {
+                    categoria: "Comida"
+                    monto: 555.5
+            }
+            ListElement {
+                    categoria: "Transporte"
+                    monto: 1000
+            }
+            ListElement {
+                    categoria: "Entretenimiento"
+                    monto: 2000
+            }
+        }
+
+        UITablaIngresos {
             id: contenedorTablaIngresos
+            model: mockModeloTablaIngresos
+
             anchors.top: contenedorInformacionGastos.bottom
             anchors.bottom: contenedorPrincipal.bottom
             anchors.left: contenedorPrincipal.left
             anchors.right: contenedorPrincipal.right
-
-            color: "cyan"
         }
     }
 
