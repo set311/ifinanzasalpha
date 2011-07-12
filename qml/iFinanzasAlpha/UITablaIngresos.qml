@@ -1,6 +1,8 @@
 import QtQuick 1.0
 
-ListView {
+Column {
+    property alias model: myRepeater.model
+
     Component {
         id: delegadoLista
 
@@ -26,5 +28,8 @@ ListView {
         }
     }
 
-    delegate: delegadoLista
+    Repeater {
+        id: myRepeater
+        delegate: delegadoLista
+    }
 }
