@@ -27,12 +27,13 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    modelo/transaccion.cpp
+    modelo/transaccion.cpp \
+    controlador/ControladorTablaIngresos.cpp
 
 HEADERS += \
-    modelo/transaccion.h
+    modelo/transaccion.h \
+    controlador/ControladorTablaIngresos.h
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
-

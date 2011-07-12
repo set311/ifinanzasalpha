@@ -1,6 +1,9 @@
 import QtQuick 1.0
 
-ListView {
+Column {
+    id: tablaIngresos
+    property alias model: myRepeater.model
+
     Component {
         id: delegadoLista
 
@@ -23,8 +26,31 @@ ListView {
                 activeFocusOnPress: true
                 text: monto
             }
+
+            Rectangle {
+                color: "red"
+                width: 30
+                height: 30
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        delegadoTablaIngresos.eliminaElemento(idElemento)
+                    }
+                }
+            }
         }
     }
 
-    delegate: delegadoLista
+    Repeater {
+        id: myRepeater
+        delegate: delegadoLista
+    }
+
+    move: Transition {
+         NumberAnimation {
+             properties: "y"
+             easing.type: Easing.OutBounce
+         }
+     }
 }
