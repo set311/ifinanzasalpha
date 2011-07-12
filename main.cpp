@@ -6,19 +6,19 @@
 
 #include "qmlapplicationviewer.h"
 #include "modelo/transaccion.h"
+#include "controlador/ControladorTablaIngresos.h"
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    QList<QObject*> mockModeloTablaIngresos;
-
-    mockModeloTablaIngresos << new Transaccion("Comida", 555.5)
-                            << new Transaccion("Transporte", 1000)
-                            << new Transaccion("Entretenimiento", 2000);
+    ControladorTablaIngresos controlador;
 
     QmlApplicationViewer viewer;
-    viewer.engine()->rootContext()->setContextProperty("modeloTablaIngresos", QVariant::fromValue(mockModeloTablaIngresos));
+    viewer.engine()->rootContext()->setContextProperty("delegadoTablaIngresos", &controlador);
+    viewer.engine()->rootContext()->setContextProperty("modeloTablaIngresos", QVariant::fromValue(controlador.obtenLista()));
+
     viewer.setMainQmlFile(QLatin1String("qml/iFinanzasAlpha/main.qml"));
+
     viewer.showExpanded();
 
     return app.exec();
