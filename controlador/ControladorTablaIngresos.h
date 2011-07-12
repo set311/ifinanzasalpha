@@ -3,17 +3,19 @@
 
 #include <QObject>
 #include <QList>
+#include <QDeclarativeContext>
 
 class ControladorTablaIngresos : public QObject
 {
     Q_OBJECT
 public:
-    explicit ControladorTablaIngresos(QObject * parent = 0);
+    explicit ControladorTablaIngresos(QDeclarativeContext * ctx, QObject * parent = 0);
 
     Q_INVOKABLE void eliminaElemento(int idElemento);
     Q_INVOKABLE QList<QObject*> obtenLista();
 
 private:
+    QDeclarativeContext * ctx;
     QList<QObject *> listaElementos;
 };
 

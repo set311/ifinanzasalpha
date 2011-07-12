@@ -11,12 +11,9 @@
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    ControladorTablaIngresos controlador;
 
     QmlApplicationViewer viewer;
-    viewer.engine()->rootContext()->setContextProperty("delegadoTablaIngresos", &controlador);
-    viewer.engine()->rootContext()->setContextProperty("modeloTablaIngresos", QVariant::fromValue(controlador.obtenLista()));
-
+    ControladorTablaIngresos controlador(viewer.engine()->rootContext());
     viewer.setMainQmlFile(QLatin1String("qml/iFinanzasAlpha/main.qml"));
 
     viewer.showExpanded();
